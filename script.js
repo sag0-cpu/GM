@@ -1,17 +1,27 @@
 const cards = [
-    { position: 'Pitcher', player: 'Chase McCoy', points: 21.64, ERA: 3.2, strikeouts: 150 },
-    { position: 'Pitcher', player: 'Grant Navarro', points: 22.03, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Mason Pierce', points: 22.66, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Dylan Carter', points: 19.31, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Trent Ferguson', points: 21.52, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Leo Rodriguez', points: 11.09, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Colton Wells', points: 24.821, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Blake Dawson', points: 21.8, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Evan Hamilton', points: 21.08, ERA: 2.8, strikeouts: 170 },
-    { position: 'Pitcher', player: 'Nolan Sinclair', points: 21.99, ERA: 2.8, strikeouts: 170 },
+    { position: 'Pitcher', player: 'Chase McCoy', points: 21.64, ERA: 7.06, strikeouts: 14, winsPct: 1, WHIP: 1.708, salary: 900000}, 
+    { position: 'Pitcher', player: 'Grant Navarro', points: 22.03, ERA: 3.35, strikeouts: 18, winsPct: 0.667, WHIP: 1.161, salary: 900000},
+    { position: 'Pitcher', player: 'Mason Pierce', points: 22.66, ERA: 4.3, strikeouts: 48, winsPct: 0.7, WHIP: 1.447, salary: 2500000},
+    { position: 'Pitcher', player: 'Dylan Carter', points: 19.31, ERA: 27, strikeouts: 2, winsPct: 0, WHIP: 3, salary: 900000}, 
+    { position: 'Pitcher', player: 'Trent Ferguson', points: 21.52, ERA: 6.23, strikeouts: 7, winsPct: 0, WHIP: 1.615, salary: 900000},
+    { position: 'Pitcher', player: 'Leo Rodriguez', points: 15.09, ERA: 5.7, strikeouts: 45, winsPct: 0.3, WHIP: 1.75, salary: 900000}, 
+    { position: 'Pitcher', player: 'Colton Wells', points: 24.821, ERA: 3.04, strikeouts: 133, winsPct: 0.462, WHIP: 1.048, salary: 1500000},
+    { position: 'Pitcher', player: 'Blake Dawson', points: 21.8, ERA: 4.24, strikeouts: 10, winsPct: 0, WHIP: 1.35, salary:  900000},
+    { position: 'Pitcher', player: 'Evan Hamilton', points: 21.08, ERA: 9, strikeouts: 32, winsPct: 0.556, WHIP: 2.5, salary:  900000}, 
+    { position: 'Pitcher', player: 'Nolan Sinclair', points: 21.99, ERA: 2.83, strikeouts: 106, winsPct: 0.35, WHIP: 1.05, salary: 4500000},
+
     
     { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
     { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
+    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
+    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
+    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
+    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
+    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
+    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
+    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
+    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
+   
     { position: '1B', player: 'Player E', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520 },
     { position: '1B', player: 'Player F', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510 },
     { position: '2B', player: 'Player G', points: 13, OBP: 0.365, BA: 0.310, HR: 22, RBI: 60, SLG: 0.530 },
@@ -38,7 +48,7 @@ function getRandomCardsForPosition(position, numCards) {
 
 function generateCards() {
     const container = document.getElementById('cards-container');
-    const positions = ['Pitcher', 'Catcher', '1B', '2B', '3B'];
+    const positions = ['Pitcher', 'Catcher', '1B', '2B', '3B', 'SS'];  // Added 'SS' here
     const numCardsToShow = 5;
 
     positions.forEach(position => {
