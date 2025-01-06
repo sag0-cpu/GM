@@ -10,18 +10,8 @@ const cards = [
     { position: 'Pitcher', player: 'Evan Hamilton', points: 21.08, ERA: 9, strikeouts: 32, winsPct: 0.556, WHIP: 2.5, salary:  900000}, 
     { position: 'Pitcher', player: 'Nolan Sinclair', points: 21.99, ERA: 2.83, strikeouts: 106, winsPct: 0.35, WHIP: 1.05, salary: 4500000},
 
-    
     { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
     { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
-    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
-    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
-    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
-    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
-    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
-    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
-    { position: 'Catcher', player: 'Player C', points: 8, OBP: 0.345, BA: 0.275, HR: 12, RBI: 45, SLG: 0.450 },
-    { position: 'Catcher', player: 'Player D', points: 9, OBP: 0.360, BA: 0.280, HR: 15, RBI: 50, SLG: 0.470 },
-   
     { position: '1B', player: 'Player E', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520 },
     { position: '1B', player: 'Player F', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510 },
     { position: '2B', player: 'Player G', points: 13, OBP: 0.365, BA: 0.310, HR: 22, RBI: 60, SLG: 0.530 },
@@ -31,7 +21,6 @@ const cards = [
     { position: 'SS', player: 'Player K', points: 14, OBP: 0.375, BA: 0.300, HR: 18, RBI: 60, SLG: 0.510 },
     { position: 'SS', player: 'Player L', points: 16, OBP: 0.355, BA: 0.290, HR: 20, RBI: 65, SLG: 0.520 },
 ];
-
 
 function shuffleArray(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -68,38 +57,4 @@ function generateCards() {
                 ${card.OBP ? `<p><strong>OBP:</strong> ${card.OBP}</p>` : ''}
                 ${card.BA ? `<p><strong>BA:</strong> ${card.BA}</p>` : ''}
                 ${card.HR ? `<p><strong>HR:</strong> ${card.HR}</p>` : ''}
-                ${card.RBI ? `<p><strong>RBI:</strong> ${card.RBI}</p>` : ''}
-                ${card.SLG ? `<p><strong>SLG:</strong> ${card.SLG}</p>` : ''}
-                <button onclick="selectCard('${card.player}', '${position}')">Select ${card.player}</button>
-            `;
-            positionContainer.appendChild(cardElement);
-        });
-        container.appendChild(positionContainer);
-    });
-}
-
-let selectedPlayers = {};
-
-function selectCard(player, position) {
-    if (!selectedPlayers[position]) {
-        selectedPlayers[position] = player;
-    } else {
-        alert(`You already selected a ${position}.`);
-    }
-}
-
-function submitSelections() {
-    const totalPoints = Object.keys(selectedPlayers).reduce((acc, position) => {
-        const player = selectedPlayers[position];
-        const card = cards.find(c => c.player === player);
-        return acc + card.points;
-    }, 0);
-    displayRanking(totalPoints);
-}
-
-function displayRanking(totalPoints) {
-    const ranking = document.getElementById('ranking');
-    ranking.innerHTML = `Your team's total points (hidden): ${totalPoints}.`;
-}
-
-generateCards();
+                ${card.RBI ? `<p
