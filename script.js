@@ -57,4 +57,22 @@ function generateCards() {
                 ${card.OBP ? `<p><strong>OBP:</strong> ${card.OBP}</p>` : ''}
                 ${card.BA ? `<p><strong>BA:</strong> ${card.BA}</p>` : ''}
                 ${card.HR ? `<p><strong>HR:</strong> ${card.HR}</p>` : ''}
-                ${card.RBI ? `<p
+                ${card.RBI ? `<p><strong>RBI:</strong> ${card.RBI}</p>` : ''}
+                ${card.SLG ? `<p><strong>SLG:</strong> ${card.SLG}</p>` : ''}
+                <button onclick="selectCard('${card.player}', '${position}')">Select ${card.player}</button>
+            `;
+            positionContainer.appendChild(cardElement);
+        });
+        container.appendChild(positionContainer);
+    });
+}
+
+function selectCard(player, position) {
+    console.log(`Selected ${player} for ${position}`);
+}
+
+function submitSelections() {
+    console.log("Selections submitted.");
+}
+
+generateCards();
