@@ -48,7 +48,7 @@ function getRandomCardsForPosition(position, numCards) {
 
 function generateCards() {
     const container = document.getElementById('cards-container');
-    const positions = ['Pitcher', 'Catcher', '1B', '2B', '3B', 'SS'];  // Added 'SS' here
+    const positions = ['Pitcher', 'Catcher', '1B', '2B', '3B', 'SS'];  // Updated positions list
     const numCardsToShow = 5;
 
     positions.forEach(position => {
@@ -59,7 +59,17 @@ function generateCards() {
             const cardElement = document.createElement('div');
             cardElement.classList.add('card');
             cardElement.innerHTML = `
-                <p>Player: ${card.player}</p>
+                <p><strong>Player:</strong> ${card.player}</p>
+                <p><strong>Points:</strong> ${card.points}</p>
+                ${card.ERA ? `<p><strong>ERA:</strong> ${card.ERA}</p>` : ''}
+                ${card.strikeouts ? `<p><strong>Strikeouts:</strong> ${card.strikeouts}</p>` : ''}
+                ${card.winsPct ? `<p><strong>Win %:</strong> ${card.winsPct}</p>` : ''}
+                ${card.WHIP ? `<p><strong>WHIP:</strong> ${card.WHIP}</p>` : ''}
+                ${card.OBP ? `<p><strong>OBP:</strong> ${card.OBP}</p>` : ''}
+                ${card.BA ? `<p><strong>BA:</strong> ${card.BA}</p>` : ''}
+                ${card.HR ? `<p><strong>HR:</strong> ${card.HR}</p>` : ''}
+                ${card.RBI ? `<p><strong>RBI:</strong> ${card.RBI}</p>` : ''}
+                ${card.SLG ? `<p><strong>SLG:</strong> ${card.SLG}</p>` : ''}
                 <button onclick="selectCard('${card.player}', '${position}')">Select ${card.player}</button>
             `;
             positionContainer.appendChild(cardElement);
