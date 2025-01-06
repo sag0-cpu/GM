@@ -103,4 +103,3 @@ function displayRanking(totalPoints) {
 }
 
 generateCards();
-
