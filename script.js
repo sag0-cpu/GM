@@ -23,9 +23,19 @@ const cards = [
     { position: 'Catcher', player: 'Eli Mercer', points: 1.325, OBP: 0.275, BA: 0.234, HR: 2, RBI: 14, SLG: 0.340, salary: 2650000},
     { position: 'Catcher', player: 'Max Thornton', points: 6.027, OBP: 0.317, BA: 0.256, HR: 22, RBI: 66, SLG: 0.496, salary: 12054000},
   
-  { position: '1B', player: 'Player E', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520 },
-    { position: '1B', player: 'Player F', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510 },
-    { position: '2B', player: 'Player G', points: 13, OBP: 0.365, BA: 0.310, HR: 22, RBI: 60, SLG: 0.530 },
+    { position: '1B', player: 'Connor Wallace', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520, salary: },
+    { position: '1B', player: 'Blake Dawson', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510, salary: },
+    { position: '1B', player: 'Mason Hayes', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520, salary: },
+    { position: '1B', player: 'Grant Bennett', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510, salary: },
+    { position: '1B', player: 'Wyatt Brooks', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520, salary: },
+    { position: '1B', player: 'Jackson Reed', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510, salary: },
+    { position: '1B', player: 'Tucker Malone', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520, salary: },
+    { position: '1B', player: 'Cole Sutton', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510, salary: },
+    { position: '1B', player: 'Jace Maddox', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520, salary: },
+    { position: '1B', player: 'Hunter Lawson', points: 14, OBP: 0.370, BA: 0.290, HR: 18, RBI: 65, SLG: 0.510, salary: },
+    
+  
+  { position: '2B', player: 'Player G', points: 13, OBP: 0.365, BA: 0.310, HR: 22, RBI: 60, SLG: 0.530 },
     { position: '2B', player: 'Player H', points: 16, OBP: 0.350, BA: 0.295, HR: 19, RBI: 55, SLG: 0.500 },
     { position: '3B', player: 'Player I', points: 11, OBP: 0.340, BA: 0.280, HR: 16, RBI: 48, SLG: 0.460 },
     { position: '3B', player: 'Player J', points: 17, OBP: 0.390, BA: 0.320, HR: 25, RBI: 80, SLG: 0.570 },
