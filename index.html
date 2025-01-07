@@ -4,16 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball GM Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .card button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #0056b3;
+        }
+        #ranking {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
     <h1>Baseball GM Game</h1>
-    <p>Select players for each required position given the stats. At the end, you'll receive a final score of where you rank with the rest of the MLB. Good luck!</p>
-    <div id="cards-container">
-        <!-- Cards will be dynamically generated here -->
-    </div>
-    <button onclick="submitSelections()">Submit Selections</button>
+    <div id="cards-container"></div>
     <div id="ranking"></div>
-    <script src="script.js"></script>
+    <button onclick="submitSelections()">Submit Team</button>
+
+    <script>
+        const cards = [
+            { position: 'Pitcher', player: 'Chase McCoy', points: 21.64, ERA: 7.06, strikeouts: 14, winsPct: 1, WHIP: 1.708, salary: 900000 },
+            { position: 'Pitcher', player: 'Grant Navarro', points: 22.03, ERA: 3.35, strikeouts: 18, winsPct: 0.667, WHIP: 1.161, salary: 900000 },
+            { position: 'Catcher', player: 'Jake Callahan', points: 3.826, OBP: 0.306, BA: 0.259, HR: 10, RBI: 39, SLG: 0.434, salary: 7652000 },
+            { position: '1B', player: 'Player E', points: 15, OBP: 0.380, BA: 0.300, HR: 20, RBI: 70, SLG: 0.520 },
+            { position: '2B', player: 'Player G', points: 13, OBP: 0.365, BA: 0.310, HR: 22, RBI: 60, SLG: 0.530 },
+            { position: '3B', player: 'Player I', points: 11, OBP: 0.340, BA: 0.280, HR: 16, RBI: 48, SLG: 0.460 },
+            { position: 'SS', player: 'Player K', points: 14, OBP: 0.375, BA: 0.300, HR: 18, RBI: 60, SLG: 0.510 },
+        ];
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+
+        function getRandomCardsForPosition(position, numCards) {
+            const positionCards = cards.filter(card => card.position === position);
+            shuffleArray(positionCards);
+            return positionCards.slice(0, numCards);
+        }
+
+        function generateCards() {
+            const container = document.getElementById('cards-container');
+            const positions = ['Pitcher', 'Catcher', '1B', '2B', '3B', 'SS'];
+            const numCardsToShow = 5;
+
+            positions.forEach(position => {
+                const positionContainer = document.createElement('div');
+                positionContainer.innerHTML = `<h2>Select a ${position}</h2>`;
+                const positionCards = getRandomCardsForPosition(position, numCardsToShow);
+                positionCards.forEach(card => {
+                    const cardElement = document.createElement('div');
+                    cardElement.classList.add('card');
+                    cardElement.innerHTML = `
+                        <p><strong>Player:</strong> ${card.player}</p>
+                        <p><strong>Points:</strong> ${card.points}</p>
+                        ${card.ERA ? `<p><strong>ERA:</strong> ${card.ERA}</p>` : ''}
+                        ${card.strikeouts ? `<p><strong>Strikeouts:</strong> ${card.strikeouts}</p>` : ''}
+                        ${card.winsPct ? `<p><strong>Win %:</strong> ${card.winsPct}</p>` : ''}
+                        ${card.WHIP ? `<p><strong>WHIP:</strong> ${card.WHIP}</p>` : ''}
+                        ${card.OBP ? `<p><strong>OBP:</strong> ${card.OBP}</p>` : ''}
+                        ${card.BA ? `<p><strong>BA:</strong> ${card.BA}</p>` : ''}
+                        ${card.HR ? `<p><strong>HR:</strong> ${card.HR}</p>` : ''}
+                        ${card.RBI ? `<p><strong>RBI:</strong> ${card.RBI}</p>` : ''}
+                        ${card.SLG ? `<p><strong>SLG:</strong> ${card.SLG}</p>` : ''}
+                        <button onclick="selectCard('${card.player}', '${position}')">Select ${card.player}</button>
+                    `;
+                    positionContainer.appendChild(cardElement);
+                });
+                container.appendChild(positionContainer);
+            });
+        }
+
+        let selectedPlayers = {};
+
+        function selectCard(player, position) {
+            if (!selectedPlayers[position]) {
+                selectedPlayers[position] = player;
+            } else {
+                alert(`You already selected a ${position}.`);
+            }
+        }
+
+        function submitSelections() {
+            const totalPoints = Object.keys(selectedPlayers).reduce((acc, position) => {
+                const player = selectedPlayers[position];
+                const card = cards.find(c => c.player === player);
+                return acc + card.points;
+            }, 0);
+            displayRanking(totalPoints);
+        }
+
+        function displayRanking(totalPoints) {
+            const ranking = document.getElementById('ranking');
+            ranking.innerHTML = `Your team's total points: ${totalPoints}`;
+        }
+
+        generateCards();
+    </script>
 </body>
 </html>
